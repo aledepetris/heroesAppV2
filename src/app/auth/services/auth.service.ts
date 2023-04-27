@@ -37,7 +37,7 @@ export class AuthService {
                 tap( user => this.user = user ),
                 map( user => !!user ),
                 catchError( err => of(false))
-            )
+            );
 
     }
 
