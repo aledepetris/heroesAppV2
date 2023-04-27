@@ -5,7 +5,7 @@ import { User } from '../interfaces/user.interface';
 import { Observable, tap } from 'rxjs';
 
 @Injectable({providedIn: 'root'})
-export class ServiceNameService {
+export class AuthService {
 
     private baseUrl = environment.baseUrl;
     private user?: User;
@@ -22,8 +22,13 @@ export class ServiceNameService {
         return this.http.get<User>(`${ this.baseUrl }/users/1`)
                         .pipe(
                             tap( user => this.user = user),
-                            tap( user => localStorage.setItem( 'token', user.id.toString() )),
+                            tap( user => localStorage.setItem( 'token', 'asdsawq321.asddasdsa32.asdas233' )),
                         );
+    }
+
+    logout() {
+        this.user = undefined;
+        localStorage.clear();
     }
 
 }
